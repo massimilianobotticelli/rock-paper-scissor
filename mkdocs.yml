@@ -1,0 +1,22 @@
+site_name: Rock, Paper, Scissors Game Documentation
+nav:
+  - Home: index.md
+  - API: api.md
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: dark blue
+  
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_root_heading: true
+            show_source: true
+            docstring_style: google
