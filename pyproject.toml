@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "rps_game"
+name = "rps_games"
 version = "0.0.1"
 description = "Rock, Paper, Scissors game"
-authors = ["Massimiliano Botticelli <massimiliano.botticelli@gmail.com"]
-
+authors = ["Massimiliano Botticelli <massimiliano.botticelli@gmail.com>"]
+license = "LICENCE"
+readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"

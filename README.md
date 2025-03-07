@@ -14,22 +14,21 @@ The winner receives one point for each game won. After a predetermined condition
  
 ### Classic rules
  
-Scissors cut paper,
-Paper wraps rock,
-Rock beats scissors,
+- Scissors cut paper,
+- Paper wraps rock,
+- Rock beats scissors,
  
 ### Rules with Spock and lizard
- 
-Scissors cut paper,
-Paper wraps around rock,
-Rock crushes lizard,
-Lizard poisons Spock,
-Spock smashes scissors,
-Scissors decapitate lizard,
-Lizard eats paper,
-Paper disproves Spock,
-Spock vaporizes rock,
-rock hits scissors
+- Scissors cut paper,
+- Paper wraps around rock,
+- Rock crushes lizard,
+- Lizard poisons Spock,
+- Spock smashes scissors,
+- Scissors decapitate lizard,
+- Lizard eats paper,
+- Paper disproves Spock,
+- Spock vaporizes rock,
+- Rock hits scissors
 
 ## Getting Started
 
