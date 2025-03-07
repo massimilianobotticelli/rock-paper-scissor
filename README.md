@@ -1,10 +1,35 @@
-# Python Template
+# Rock, Paper, Scissors
 
-...
+## Description
+ 
+Rock, Paper, Scissors is a popular game. Two players choose one of the symbols (scissors, rock or paper) and show it simultaneously when called. Each symbol is superior to another symbol. If both players choose the same symbol, there is a draw. In this case, the game is repeated.
+ 
+The winner receives one point for each game won. After a predetermined condition, e.g. (best out of 3; first with 5; number of games; ...) a player wins the round.
+ 
+1. The task is to implement the game logic in Python, which supports both a human player and a computer-controlled player.
+ 
+2. The rule variants available should be the classic Scissors, Rock, Paper variant and an extended variant with the addition of Spock and Lizard.
 
-## Features
-
-* ...
+3. How can the game remain expandable for further rule variants?
+ 
+### Classic rules
+ 
+Scissors cut paper,
+Paper wraps rock,
+Rock beats scissors,
+ 
+### Rules with Spock and lizard
+ 
+Scissors cut paper,
+Paper wraps around rock,
+Rock crushes lizard,
+Lizard poisons Spock,
+Spock smashes scissors,
+Scissors decapitate lizard,
+Lizard eats paper,
+Paper disproves Spock,
+Spock vaporizes rock,
+rock hits scissors
 
 ## Getting Started
 
@@ -17,7 +42,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone [invalid URL removed]
+   git clone https://github.com/massimilianobotticelli/rock-paper-scissor
    ```
 
 2. **Install dependencies using Poetry:**
@@ -25,26 +50,6 @@
    ```bash
    poetry install
    ```
-
-3. **Set up your environment variables:**
-
-   * Create a `.env` file in the root directory.
-   * Add your API keys:
-     ```
-     API_KEY=your_api_key_here
-     ```
-
-4. ...
-
-### Running the Chatbot
-
-```bash
-poetry run streamlit run app.py
-```
-
-## Customization
-
-...
 
 ## Contributing
 
