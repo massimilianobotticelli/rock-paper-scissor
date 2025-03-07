@@ -34,7 +34,7 @@ The winner receives one point for each game won. After a predetermined condition
 
 ### Prerequisites
 
-* **Python 3.11 or higher**
+* **Python 3.12 or higher**
 * **Poetry** (for dependency management)
 
 ### Installation

@@ -8,3 +8,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+emoji = "^2.14.1"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^6.0.1"
+black = "^25.1.0"
+pylint = "^3.3.4"
+icecream = "^2.1.4"
