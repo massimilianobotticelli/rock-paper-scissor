@@ -1,0 +1,2831 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>API - Rock, Paper, Scissors Game Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="dark-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Rock, Paper, Scissors Game Documentation" class="md-header__button md-logo" aria-label="Rock, Paper, Scissors Game Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rock, Paper, Scissors Game Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Rock, Paper, Scissors Game Documentation" class="md-nav__button md-logo" aria-label="Rock, Paper, Scissors Game Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Rock, Paper, Scissors Game Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rps_games.game" class="md-nav__link">
+    <span class="md-ellipsis">
+      game
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.ComputerPlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComputerPlayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComputerPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.ComputerPlayer.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.get_winner" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_winner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_best_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_best_of
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_first_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_first_to
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_round" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_round
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.round_eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      round_eval
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.HumanPlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      HumanPlayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HumanPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.HumanPlayer.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player.__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __str__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet" class="md-nav__link">
+    <span class="md-ellipsis">
+      RuleSet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RuleSet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet.determine_winner" class="md-nav__link">
+    <span class="md-ellipsis">
+      determine_winner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet.get_choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_choices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rps_games.game" class="md-nav__link">
+    <span class="md-ellipsis">
+      game
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.ComputerPlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComputerPlayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComputerPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.ComputerPlayer.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.get_winner" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_winner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_best_of" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_best_of
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_first_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_first_to
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.play_round" class="md-nav__link">
+    <span class="md-ellipsis">
+      play_round
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Game.round_eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      round_eval
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.HumanPlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      HumanPlayer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HumanPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.HumanPlayer.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player.__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __str__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.Player.choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet" class="md-nav__link">
+    <span class="md-ellipsis">
+      RuleSet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RuleSet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet.determine_winner" class="md-nav__link">
+    <span class="md-ellipsis">
+      determine_winner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rps_games.game.RuleSet.get_choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_choices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-documentation">API Documentation</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="rps_games.game" class="doc doc-heading">
+            <code>rps_games.game</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Rock, Paper, Scissors game with extended rules.</p>
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="rps_games.game.ComputerPlayer" class="doc doc-heading">
+            <code>ComputerPlayer</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code></p>
+
+
+        <p>Computer Player class.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.ComputerPlayer.name">name</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of the player.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.ComputerPlayer.score">score</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Score of the player.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.ComputerPlayer.choice" href="#rps_games.game.ComputerPlayer.choice">choice</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Gets the computer player's choice randomly.</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.ComputerPlayer.__str__" href="#rps_games.game.Player.__str__">__str__</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>String representation of the player.</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src\rps_games\game.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComputerPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computer Player class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): Name of the player.</span>
+<span class="sd">        score (int): Score of the player.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        choice: Gets the computer player&#39;s choice randomly.</span>
+<span class="sd">        __str__: String representation of the player.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets the computer player&#39;s choice randomly.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            choices (list[str]): List of possible choices.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Chosen option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.ComputerPlayer.choice" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Gets the computer player's choice randomly.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>choices</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of possible choices.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Chosen option.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the computer player&#39;s choice randomly.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        choices (list[str]): List of possible choices.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Chosen option.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="rps_games.game.Game" class="doc doc-heading">
+            <code>Game</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Game class to play the game.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Game.player_a">player_a</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>First player.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Game.player_b">player_b</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Second player.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Game.rule_set">rule_set</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.RuleSet" href="#rps_games.game.RuleSet">RuleSet</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>RuleSet object containing the game rules.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Game.Methods">Methods</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.RuleSet" href="#rps_games.game.RuleSet">RuleSet</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>round_eval: Evaluates the round and updates the score.
+play_best_of: Plays a game with the best of a specified number of rounds.
+play_first_to: Plays a game where the first player to reach a specified score wins.
+play_round: Plays a single round of the game.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src\rps_games\game.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Game</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Game class to play the game.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        player_a (Player): First player.</span>
+<span class="sd">        player_b (Player): Second player.</span>
+<span class="sd">        rule_set (RuleSet): RuleSet object containing the game rules.</span>
+
+<span class="sd">        Methods:</span>
+<span class="sd">            round_eval: Evaluates the round and updates the score.</span>
+<span class="sd">            play_best_of: Plays a game with the best of a specified number of rounds.</span>
+<span class="sd">            play_first_to: Plays a game where the first player to reach a specified score wins.</span>
+<span class="sd">            play_round: Plays a single round of the game.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player_a</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span> <span class="n">player_b</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span> <span class="n">rule_set</span><span class="p">:</span> <span class="n">RuleSet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span> <span class="o">=</span> <span class="n">player_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span> <span class="o">=</span> <span class="n">player_b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule_set</span> <span class="o">=</span> <span class="n">rule_set</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">round_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">winner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Player</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Evaluates the round and updates the score.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            winner (Optional[Player]): The player who won the round, or None if it&#39;s a draw.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">winner</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Draw&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">winner</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">winner</span><span class="si">}</span><span class="s2"> wins this round&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_winner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Player</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets the winner of the game.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Player: The player with the highest score.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">play_best_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rounds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Player</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plays a game with the best of a specified number of rounds.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            rounds (int): Number of rounds to play.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[Player]: The player who wins the most rounds, or None if it&#39;s a draw.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Best of </span><span class="si">{</span><span class="n">rounds</span><span class="si">}</span><span class="s2"> rounds&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">round_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rounds</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---------&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Round </span><span class="si">{</span><span class="n">round_num</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">play_round</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winner</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">play_first_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Player</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plays a game where the first player to reach a specified score wins.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            score (int): Score to reach to win the game.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Player: The player who reaches the score first.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First to </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2"> wins&quot;</span><span class="p">)</span>
+        <span class="n">round_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Round </span><span class="si">{</span><span class="n">round_num</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">play_round</span><span class="p">()</span>
+            <span class="n">round_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winner</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">play_round</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plays a single round of the game.&quot;&quot;&quot;</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_set</span><span class="o">.</span><span class="n">get_choices</span><span class="p">()</span>
+        <span class="n">choice_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+        <span class="n">choice_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="si">}</span><span class="s2"> chooses </span><span class="si">{</span><span class="n">choice_a</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="si">}</span><span class="s2"> chooses </span><span class="si">{</span><span class="n">choice_b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_set</span><span class="o">.</span><span class="n">determine_winner</span><span class="p">(</span><span class="n">choice_a</span><span class="p">,</span> <span class="n">choice_b</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Draw&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">winning_choice</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">winner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span> <span class="k">if</span> <span class="n">winning_choice</span> <span class="o">==</span> <span class="n">choice_a</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">winning_choice</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">choice_b</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">winning_choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">choice_a</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">choice_a</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">round_eval</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+
+        <span class="k">return</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Game.get_winner" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_winner</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Gets the winner of the game.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Player</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The player with the highest score.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_winner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Player</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the winner of the game.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Player: The player with the highest score.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span>
+        <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Game.play_best_of" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">play_best_of</span><span class="p">(</span><span class="n">rounds</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Plays a game with the best of a specified number of rounds.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>rounds</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of rounds to play.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional[Player]: The player who wins the most rounds, or None if it's a draw.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">play_best_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rounds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Player</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plays a game with the best of a specified number of rounds.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        rounds (int): Number of rounds to play.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Optional[Player]: The player who wins the most rounds, or None if it&#39;s a draw.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Best of </span><span class="si">{</span><span class="n">rounds</span><span class="si">}</span><span class="s2"> rounds&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">round_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rounds</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Round </span><span class="si">{</span><span class="n">round_num</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play_round</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winner</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Game.play_first_to" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">play_first_to</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Plays a game where the first player to reach a specified score wins.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>score</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Score to reach to win the game.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Player</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The player who reaches the score first.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">play_first_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Player</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plays a game where the first player to reach a specified score wins.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        score (int): Score to reach to win the game.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Player: The player who reaches the score first.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First to </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2"> wins&quot;</span><span class="p">)</span>
+    <span class="n">round_num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Round </span><span class="si">{</span><span class="n">round_num</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play_round</span><span class="p">()</span>
+        <span class="n">round_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winner</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Game.play_round" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">play_round</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Plays a single round of the game.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">play_round</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plays a single round of the game.&quot;&quot;&quot;</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_set</span><span class="o">.</span><span class="n">get_choices</span><span class="p">()</span>
+    <span class="n">choice_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+    <span class="n">choice_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="si">}</span><span class="s2"> chooses </span><span class="si">{</span><span class="n">choice_a</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="si">}</span><span class="s2"> chooses </span><span class="si">{</span><span class="n">choice_b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_set</span><span class="o">.</span><span class="n">determine_winner</span><span class="p">(</span><span class="n">choice_a</span><span class="p">,</span> <span class="n">choice_b</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Draw&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">winning_choice</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="n">winner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_a</span> <span class="k">if</span> <span class="n">winning_choice</span> <span class="o">==</span> <span class="n">choice_a</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">player_b</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">winning_choice</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">choice_b</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">winning_choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">choice_a</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">choice_a</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">round_eval</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Game.round_eval" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">round_eval</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Evaluates the round and updates the score.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>winner</code>
+            </td>
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The player who won the round, or None if it's a draw.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">round_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">winner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Player</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluates the round and updates the score.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        winner (Optional[Player]): The player who won the round, or None if it&#39;s a draw.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">winner</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Draw&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">winner</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">winner</span><span class="si">}</span><span class="s2"> wins this round&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_a</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player_b</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="rps_games.game.HumanPlayer" class="doc doc-heading">
+            <code>HumanPlayer</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="rps_games.game.Player" href="#rps_games.game.Player">Player</a></code></p>
+
+
+        <p>Human Player class.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.HumanPlayer.name">name</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of the player.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.HumanPlayer.score">score</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Score of the player.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.HumanPlayer.choice" href="#rps_games.game.HumanPlayer.choice">choice</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Gets the human player's choice using a secure
+input method.</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.HumanPlayer.__str__" href="#rps_games.game.Player.__str__">__str__</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>String representation of the player.</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src\rps_games\game.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HumanPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Human Player class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): Name of the player.</span>
+<span class="sd">        score (int): Score of the player.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        choice: Gets the human player&#39;s choice using a secure</span>
+<span class="sd">            input method.</span>
+<span class="sd">        __str__: String representation of the player.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets the human player&#39;s choice using a secure input method. This avoids</span>
+<span class="sd">        that if two humans are playing, they know what the other player has chosen.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            choices (list[str]): List of possible choices.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Chosen option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, enter your choice </span><span class="si">{</span><span class="n">choices</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;(or &#39;q&#39; to quit): &quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">choice</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid choice. Please choose from </span><span class="si">{</span><span class="n">choices</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.HumanPlayer.choice" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Gets the human player's choice using a secure input method. This avoids
+that if two humans are playing, they know what the other player has chosen.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>choices</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of possible choices.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Chosen option.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the human player&#39;s choice using a secure input method. This avoids</span>
+<span class="sd">    that if two humans are playing, they know what the other player has chosen.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        choices (list[str]): List of possible choices.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Chosen option.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, enter your choice </span><span class="si">{</span><span class="n">choices</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;(or &#39;q&#39; to quit): &quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">choice</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid choice. Please choose from </span><span class="si">{</span><span class="n">choices</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="rps_games.game.Player" class="doc doc-heading">
+            <code>Player</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+        <p>Abstract Player class.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Player.name">name</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of the player.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.Player.score">score</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Score of the player.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.Player.choice" href="#rps_games.game.Player.choice">choice</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Abstract method to get the player's choice.</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="rps_games.game.Player.__str__" href="#rps_games.game.Player.__str__">__str__</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>String representation of the player.</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src\rps_games\game.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract Player class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): Name of the player.</span>
+<span class="sd">        score (int): Score of the player.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        choice: Abstract method to get the player&#39;s choice.</span>
+<span class="sd">        __str__: String representation of the player.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to get the player&#39;s choice.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            choices (list[str]): List of possible choices.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Chosen option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;String representation of the player.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Name of the player.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Player.__str__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__str__</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>String representation of the player.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of the player.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;String representation of the player.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Name of the player.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.Player.choice" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">choice</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Abstract method to get the player's choice.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>choices</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of possible choices.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Chosen option.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract method to get the player&#39;s choice.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        choices (list[str]): List of possible choices.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Chosen option.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="rps_games.game.RuleSet" class="doc doc-heading">
+            <code>RuleSet</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>RuleSet class to store the rules of the game.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="rps_games.game.RuleSet.rules">rules</span></code></td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dictionary where keys are choices and values are
+dictionaries of choices they can defeat with reasons.</p>
+<p>Example:
+    {
+        "Rock": {"Scissors": "crushes"},
+        "Scissors": {"Paper": "cuts"},
+        "Paper": {"Rock": "covers"},
+    }</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src\rps_games\game.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RuleSet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;RuleSet class to store the rules of the game.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        rules (dict[str, dict[str, str]]): Dictionary where keys are choices and values are</span>
+<span class="sd">            dictionaries of choices they can defeat with reasons.</span>
+
+<span class="sd">            Example:</span>
+<span class="sd">                {</span>
+<span class="sd">                    &quot;Rock&quot;: {&quot;Scissors&quot;: &quot;crushes&quot;},</span>
+<span class="sd">                    &quot;Scissors&quot;: {&quot;Paper&quot;: &quot;cuts&quot;},</span>
+<span class="sd">                    &quot;Paper&quot;: {&quot;Rock&quot;: &quot;covers&quot;},</span>
+<span class="sd">                }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="n">rules</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_choices</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets the list of possible choices.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list[str]: List of choices.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">determine_winner</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">choice_a</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">choice_b</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines the winner between two choices.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            choice_a (str): First choice.</span>
+<span class="sd">            choice_b (str): Second choice.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[tuple[str, str]]: Tuple containing the winning choice and the reason,</span>
+<span class="sd">                or None if it&#39;s a draw.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; rules = RuleSet(BASIC_RULES)</span>
+<span class="sd">            &gt;&gt;&gt; rules.determine_winner(&quot;Rock&quot;, &quot;Scissors&quot;)</span>
+<span class="sd">                (&quot;Rock&quot;, &quot;crushes&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; rules.determine_winner(&quot;Scissors&quot;, &quot;Paper&quot;)</span>
+<span class="sd">                (&quot;Scissors&quot;, &quot;cuts&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">choice_a</span> <span class="o">==</span> <span class="n">choice_b</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">choice_a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_b</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">choice_b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_b</span><span class="p">][</span><span class="n">choice_a</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">choice_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_a</span><span class="p">][</span><span class="n">choice_b</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.RuleSet.determine_winner" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">determine_winner</span><span class="p">(</span><span class="n">choice_a</span><span class="p">,</span> <span class="n">choice_b</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Determines the winner between two choices.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>choice_a</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>First choice.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>choice_b</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Second choice.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="tuple">tuple</span>[<span title="str">str</span>, <span title="str">str</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional[tuple[str, str]]: Tuple containing the winning choice and the reason,
+or None if it's a draw.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>rules = RuleSet(BASIC_RULES)
+rules.determine_winner("Rock", "Scissors")
+    ("Rock", "crushes")
+rules.determine_winner("Scissors", "Paper")
+    ("Scissors", "cuts")</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">determine_winner</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">choice_a</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">choice_b</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determines the winner between two choices.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        choice_a (str): First choice.</span>
+<span class="sd">        choice_b (str): Second choice.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Optional[tuple[str, str]]: Tuple containing the winning choice and the reason,</span>
+<span class="sd">            or None if it&#39;s a draw.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; rules = RuleSet(BASIC_RULES)</span>
+<span class="sd">        &gt;&gt;&gt; rules.determine_winner(&quot;Rock&quot;, &quot;Scissors&quot;)</span>
+<span class="sd">            (&quot;Rock&quot;, &quot;crushes&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; rules.determine_winner(&quot;Scissors&quot;, &quot;Paper&quot;)</span>
+<span class="sd">            (&quot;Scissors&quot;, &quot;cuts&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">choice_a</span> <span class="o">==</span> <span class="n">choice_b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">choice_a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_b</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">choice_b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_b</span><span class="p">][</span><span class="n">choice_a</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">choice_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">choice_a</span><span class="p">][</span><span class="n">choice_b</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="rps_games.game.RuleSet.get_choices" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_choices</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Gets the list of possible choices.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[str]: List of choices.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src\rps_games\game.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_choices</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the list of possible choices.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list[str]: List of choices.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
