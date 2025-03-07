@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "app_name"
+version = "0.0.1"
+description = "A chatbot that answers questions based on your profile"
+authors = ["Massimiliano Botticelli <massimiliano.botticelli@gmail.com"]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
