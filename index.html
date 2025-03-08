@@ -275,9 +275,84 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extended-rules" class="md-nav__link">
+  <a href="#spock-lizard-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      Extended Rules
+      Spock-Lizard Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#game-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rules Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Game
     </span>
   </a>
   
@@ -393,9 +468,84 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extended-rules" class="md-nav__link">
+  <a href="#spock-lizard-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      Extended Rules
+      Spock-Lizard Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#game-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rules Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Game
     </span>
   </a>
   
@@ -424,7 +574,7 @@
 
 <h1 id="rock-paper-scissors-game-documentation">Rock, Paper, Scissors Game Documentation</h1>
 <h2 id="overview">Overview</h2>
-<p>This project implements a Rock, Paper, Scissors game with extended rules. The game can be played between two human players, two computer players, or one human and one computer player.</p>
+<p>This project implements a Rock, Paper, Scissors game with extended rules. The game can be played between two human players, two computer players, or one human and one computer player. Additionally, it supports a player powered by a large language model (LLM).</p>
 <h2 id="game-rules">Game Rules</h2>
 <h3 id="basic-rules">Basic Rules</h3>
 <ul>
@@ -432,7 +582,7 @@
 <li>Scissors cuts Paper</li>
 <li>Paper covers Rock</li>
 </ul>
-<h3 id="extended-rules">Extended Rules</h3>
+<h3 id="spock-lizard-rules">Spock-Lizard Rules</h3>
 <ul>
 <li>Lizard poisons Spock and eats Paper</li>
 <li>Spock smashes Scissors and vaporizes Rock</li>
@@ -440,6 +590,72 @@
 <li>Scissors cuts Paper and decapitates Lizard</li>
 <li>Paper covers Rock and disproves Spock</li>
 </ul>
+<h2 id="how-to-start">How to Start</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Python 3.x</li>
+<li>Required Python packages (can be installed via <code>requirements.txt</code>)</li>
+</ul>
+<h3 id="setup">Setup</h3>
+<ol>
+<li>Clone the repository to your local machine.</li>
+<li>Navigate to the project directory.</li>
+<li>Set up the environment variables by creating a <code>.env</code> file in the project directory.</li>
+<li>Install the required Python packages:
+   <code>sh
+   pip install poetry
+   poetry install</code></li>
+</ol>
+<h3 id="configuration">Configuration</h3>
+<p>The game configuration and rules are defined in YAML files located in the <code>configs</code> directory.</p>
+<h4 id="game-configuration">Game Configuration</h4>
+<p>The game configuration is located in <code>configs/game_config.yaml</code>. This file contains the configuration for the game, including the ruleset, game mode, target score, and player details.</p>
+<pre><code class="language-yaml">game:
+  rules: &quot;SPOCK_LIZARD&quot;    # Options: &quot;BASIC_RULES&quot;, &quot;SPOCK_LIZARD&quot;
+  mode: &quot;best_of&quot;          # Options: &quot;first_to&quot;, &quot;best_of&quot;
+  target_score: 10         # Used if mode is &quot;first_to&quot;
+  rounds: 10               # Used if mode is &quot;best_of&quot;
+
+players:
+  player_one:
+    type: &quot;LLMPlayer&quot;      # Options: &quot;HumanPlayer&quot;, &quot;ComputerPlayer&quot;, &quot;LLMPlayer&quot;
+    name: &quot;Gemini&quot;
+  player_two:
+    type: &quot;ComputerPlayer&quot; # Options: &quot;HumanPlayer&quot;, &quot;ComputerPlayer&quot;
+    name: &quot;Computer A&quot;
+</code></pre>
+<h4 id="rules-configuration">Rules Configuration</h4>
+<p>The tules configuration is located in <code>configs/rules.yaml</code>. This file contains the rules for the game. You can define multiple rulesets and choose one in the game configuration.</p>
+<pre><code class="language-yaml">BASIC_RULES:
+  Rock:
+    Scissors: &quot;crushes&quot;
+  Paper:
+    Rock: &quot;covers&quot;
+  Scissors:
+    Paper: &quot;cuts&quot;
+
+SPOCK_LIZARD:
+  Rock:
+    Scissors: &quot;crushes&quot;
+    Lizard: &quot;crushes&quot;
+  Paper:
+    Rock: &quot;covers&quot;
+    Spock: &quot;disproves&quot;
+  Scissors:
+    Paper: &quot;cuts&quot;
+    Lizard: &quot;decapitates&quot;
+  Lizard:
+    Spock: &quot;poisons&quot;
+    Paper: &quot;eats&quot;
+  Spock:
+    Scissors: &quot;smashes&quot;
+    Rock: &quot;vaporizes&quot;
+</code></pre>
+<h3 id="running-the-game">Running the Game</h3>
+<p>To start the game, run the <code>game.py</code> script:</p>
+<pre><code class="language-sh">python src/rps_games/game.py
+</code></pre>
+<p>The game will use the configuration specified in the <code>game_config.yaml</code> file and the rules defined in the <code>rules.yaml</code> file.</p>
 
 
 
