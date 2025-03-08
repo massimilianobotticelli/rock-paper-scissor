@@ -1,37 +1,30 @@
 """Rock, Paper, Scissors game with extended rules."""
 
-import getpass
-import random
-import sys
-import os
 import logging
-from abc import ABC, abstractmethod
+import os
 from typing import Optional
 
-from icecream import ic
-
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.prompts import PromptTemplate
 import emoji
 import yaml
-
 from dotenv import load_dotenv
+
+from rps_games.players import (
+    PLAYERS_TYPES,
+    ComputerPlayer,
+    HumanPlayer,
+    LLMPlayer,
+    Player,
+)
 
 load_dotenv()
 
 # Configure logging to write to a file instead of the console
-logging.basicConfig(filename='game.log', level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
-
-PLAYERS_TYPES = ["HumanPlayer", "ComputerPlayer", "LLMPlayer"]
-GAME_TYPES = ["first_to", "best_of"]
-
-def log_and_print(message: str):
-    """Logs and prints a message."""
-    
-    logging.info(message)
-    print(message)
-
+logging.basicConfig(
+    filename="game.log",
+    level=logging.INFO,
+    filemode="w",
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 class RuleSet:
     """RuleSet class to store the rules of the game.
@@ -49,6 +42,11 @@ class RuleSet:
     """
 
     def __init__(self, rules: dict[str, dict[str, str]]):
+        """Initializes the RuleSet with the given rules.
+
+        Args:
+            rules (dict[str, dict[str, str]]): The rules of the game.
+        """
         self.rules = rules
 
     def get_choices(self) -> list[str]:
@@ -86,152 +84,6 @@ class RuleSet:
         return choice_a, self.rules[choice_a][choice_b]
 
 
-class Player(ABC):
-    """Abstract Player class.
-
-    Attributes:
-        name (str): Name of the player.
-        score (int): Score of the player.
-
-    Methods:
-        choice: Abstract method to get the player's choice.
-        __str__: String representation of the player.
-    """
-
-    def __init__(self, name: str):
-        self.name = name
-        self.score = 0
-
-    @abstractmethod
-    def choice(self, choices: list[str]) -> str:
-        """Abstract method to get the player's choice.
-
-        Args:
-            choices (list[str]): List of possible choices.
-
-        Returns:
-            str: Chosen option.
-        """
-
-    def __str__(self) -> str:
-        """String representation of the player.
-
-        Returns:
-            str: Name of the player.
-        """
-        return self.name
-
-
-class HumanPlayer(Player):
-    """Human Player class.
-
-    Attributes:
-        name (str): Name of the player.
-        score (int): Score of the player.
-
-    Methods:
-        choice: Gets the human player's choice using a secure
-            input method.
-        __str__: String representation of the player.
-    """
-
-    def choice(self, choices: list[str]) -> str:
-        """Gets the human player's choice using a secure input method. This avoids
-        that if two humans are playing, they know what the other player has chosen.
-
-        Args:
-            choices (list[str]): List of possible choices.
-
-        Returns:
-            str: Chosen option.
-        """
-        while True:
-            choice = getpass.getpass(
-                f"{self.name}, enter your choice {choices} " f"(or 'q' to quit): "
-            )
-            if choice.upper() == "Q":
-                sys.exit()
-            if choice in choices:
-                return choice
-            print(f"Invalid choice. Please choose from {choices}.")
-
-
-class ComputerPlayer(Player):
-    """Computer Player class.
-
-    Attributes:
-        name (str): Name of the player.
-        score (int): Score of the player.
-
-    Methods:
-        choice: Gets the computer player's choice randomly.
-        __str__: String representation of the player.
-    """
-
-    def choice(self, choices: list[str]) -> str:
-        """Gets the computer player's choice randomly.
-
-        Args:
-            choices (list[str]): List of possible choices.
-
-        Returns:
-            str: Chosen option.
-        """
-        return random.choice(choices)
-    
-
-class LLMPlayer(Player):
-
-    def __init__(self, name: str, rules: dict[str, dict[str, str]]):
-        super().__init__(name)
-        self.model  = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
-        self.rules = rules
-
-    def _generate_prompt(self, choices: list[str]) -> str:
-        """Generates a prompt for the LLM with the current choices and game history.
-
-        Args:
-            choices (list[str]): List of possible choices.
-            history (list[str]): List of previous choices made in the game.
-
-        Returns:
-            str: Generated prompt.
-        """
-        template = """
-        You are playing Rock, Paper, Scissors or an extended version of it.
-        
-        Here are your options:
-        {choices}
-
-        Here are the rules:
-        {rules}
-
-        Game history between you and your opponent (your name is {name}):
-        {history}
-
-        What is your next move? Develop a strategy based on the game history.
-        
-        Answer providing only the choice (e.g., 'Rock').
-        """
-        prompt = PromptTemplate(
-            input_variables=["choices", "history"],
-            template=template
-        )
-        choices_str = "\n".join(f"- {choice}" for choice in choices)
-        with open('game.log', 'r', encoding="utf-8") as log_file:
-            history_str = log_file.read()
-        rules_str = "\n".join(
-            f"{choice} {reason} {defeated_choice}" for choice in self.rules for defeated_choice, reason in self.rules[choice].items()
-        )
-        return prompt.format(choices=choices_str, history=history_str, rules=rules_str,
-                             name=self.name)
-
-    def choice(self, choices: list[str]) -> str:
-        prompt = self._generate_prompt(choices)
-        ic(prompt)
-        res = self.model.invoke(prompt)
-        return res.content
-
 class Game:
     """Game class to play the game.
 
@@ -239,19 +91,39 @@ class Game:
         player_a (Player): First player.
         player_b (Player): Second player.
         rule_set (RuleSet): RuleSet object containing the game rules.
+        history (list[str]): List to store the history of the game.
 
-        Methods:
-            play_best_of: Plays a game with the best of a specified number of rounds.
-            play_first_to: Plays a game where the first player to reach a specified score wins.
-            _play_round: Plays a single round of the game.
-            _round_eval: Evaluates the round and updates the score.
-            _get_winner: Gets the winner of the game.
+    Methods:
+        log_and_print: Logs and prints a message.
+        play_best_of: Plays a game with the best of a specified number of rounds.
+        play_first_to: Plays a game where the first player to reach a specified score wins.
+        _play_round: Plays a single round of the game.
+        _round_eval: Evaluates the round and updates the score.
+        _get_winner: Gets the winner of the game.
     """
 
     def __init__(self, player_a: Player, player_b: Player, rule_set: RuleSet):
+        """Initializes the Game with the given players and rules.
+
+        Args:
+            player_a (Player): First player.
+            player_b (Player): Second player.
+            rule_set (RuleSet): RuleSet object containing the game rules.
+        """
         self.player_a = player_a
         self.player_b = player_b
         self.rule_set = rule_set
+        self.history = []
+
+    def log_and_print(self, message: str):
+        """Logs and prints a message.
+
+        Args:
+            message (str): Message to log and print.
+        """
+        self.history.append(message)
+        logging.info(message)
+        print(message)
 
     def play_best_of(self, rounds: int = 3) -> Optional[Player]:
         """Plays a game with the best of a specified number of rounds.
@@ -262,9 +134,9 @@ class Game:
         Returns:
             Optional[Player]: The player who wins the most rounds, or None if it's a draw.
         """
-        log_and_print(f"\nBest of {rounds} rounds")
+        self.log_and_print(f"\nBest of {rounds} rounds")
         for round_num in range(rounds):
-            log_and_print(f"\n---------\nRound {round_num+1}\n---------")
+            self.log_and_print(f"\n---------\nRound {round_num+1}\n---------")
             self._play_round()
 
         if self.player_a.score == self.player_b.score:
@@ -281,10 +153,10 @@ class Game:
         Returns:
             Player: The player who reaches the score first.
         """
-        log_and_print(f"\nFirst to {score} wins")
+        self.log_and_print(f"\nFirst to {score} wins")
         round_num = 0
         while self.player_a.score < score and self.player_b.score < score:
-            log_and_print(f"\n--------\nRound {round_num+1}\n--------")
+            self.log_and_print(f"\n--------\nRound {round_num+1}\n--------")
             self._play_round()
             round_num += 1
 
@@ -293,22 +165,22 @@ class Game:
     def _play_round(self):
         """Plays a single round of the game."""
         choices = self.rule_set.get_choices()
-        choice_a = self.player_a.choice(choices=choices)
-        choice_b = self.player_b.choice(choices=choices)
+        choice_a = self.player_a.choice(choices=choices, history=self.history)
+        choice_b = self.player_b.choice(choices=choices, history=self.history)
 
-        log_and_print(f"{self.player_a} chooses {choice_a}")
-        log_and_print(f"{self.player_b} chooses {choice_b}")
+        self.log_and_print(f"{self.player_a} chooses {choice_a}")
+        self.log_and_print(f"{self.player_b} chooses {choice_b}")
 
         result = self.rule_set.determine_winner(choice_a, choice_b)
 
         if result is None:
-            log_and_print("Draw")
+            self.log_and_print("Draw")
             return
 
         winning_choice, reason = result
         winner = self.player_a if winning_choice == choice_a else self.player_b
 
-        log_and_print(
+        self.log_and_print(
             f"{winning_choice} {reason} {choice_b if winning_choice == choice_a else choice_a}"
         )
         self._round_eval(winner)
@@ -322,12 +194,12 @@ class Game:
             winner (Optional[Player]): The player who won the round, or None if it's a draw.
         """
         if winner is None:
-            log_and_print("Draw")
+            self.log_and_print("Draw")
         else:
             winner.score += 1
-            log_and_print(f"{winner} wins this round")
+            self.log_and_print(f"{winner} wins this round")
 
-        log_and_print(
+        self.log_and_print(
             f"Score: {self.player_a} {self.player_a.score} - {self.player_b} {self.player_b.score}"
         )
 
@@ -342,6 +214,34 @@ class Game:
             if self.player_a.score > self.player_b.score
             else self.player_b
         )
+
+
+def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
+    """Validate the player configuration and return the player object.
+
+    Args:
+        player_config (dict[str, str]): Player configuration dictionary.
+        rules (Optional[dict]): Rules dictionary for the game. Required for LLMPlayer.
+
+    Returns:
+        Player: Player object based on the configuration.
+
+    Raises:
+        ValueError: If the player type is invalid.
+    """
+
+    if player_config["type"] not in PLAYERS_TYPES:
+        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
+
+    if player_config["type"] == "HumanPlayer":
+        player = HumanPlayer(name=player_config["name"])
+    elif player_config["type"] == "ComputerPlayer":
+        player = ComputerPlayer(name=player_config["name"])
+    elif player_config["type"] == "LLMPlayer":
+        player = LLMPlayer(name=player_config["name"], rules=rules)
+    else:
+        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
+    return player
 
 
 if __name__ == "__main__":
@@ -366,57 +266,33 @@ if __name__ == "__main__":
 
     game_rules = RuleSet(defined_rules[chosen_rules])
 
-    # Get player configurations
-    player_one_config = config["players"]["player_one"]
-    player_two_config = config["players"]["player_two"]
-
-    if (
-        player_one_config["type"] not in PLAYERS_TYPES
-        or player_two_config["type"] not in PLAYERS_TYPES
-    ):
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
-
-    # Initialize player one based on the configuration
-    if player_one_config["type"] == "HumanPlayer":
-        player_one = HumanPlayer(name=player_one_config["name"])
-    elif player_one_config["type"] == "ComputerPlayer":
-        player_one = ComputerPlayer(name=player_one_config["name"])
-    elif player_one_config["type"] == "LLMPlayer":
-        player_one = LLMPlayer(name=player_one_config["name"], rules=defined_rules[chosen_rules])
-    else:
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
-
-    # Initialize player two based on the configuration
-    if player_two_config["type"] == "HumanPlayer":
-        player_two = HumanPlayer(name=player_two_config["name"])
-    elif player_two_config["type"] == "ComputerPlayer":
-        player_two = ComputerPlayer(name=player_two_config["name"])
-    elif player_two_config["type"] == "LLMPlayer":
-        player_two = LLMPlayer(name=player_two_config["name"], rules=defined_rules[chosen_rules])
-    else:
-        raise ValueError(f"Invalid player type for player two. Must be {PLAYERS_TYPES}")
+    # Get player configurations and init the players
+    player_one = validate_player(
+        config["players"]["player_one"], defined_rules[chosen_rules]
+    )
+    player_two = validate_player(
+        config["players"]["player_two"], defined_rules[chosen_rules]
+    )
 
     # Initialize the game with the players and rules
     game = Game(player_one, player_two, game_rules)
 
-    # Validate the game mode
-    if config["game"]["mode"] not in GAME_TYPES:
-        raise ValueError(f"Invalid game mode. Must be one of {GAME_TYPES}")
-
     # Play the game based on the mode specified in the configuration
     if config["game"]["mode"] == "first_to":
         game_winner = game.play_first_to(score=config["game"]["target_score"])
-    else:
+    if config["game"]["mode"] == "best_of":
         game_winner = game.play_best_of(rounds=config["game"]["rounds"])
+    else:
+        raise ValueError("Invalid game mode. Must be 'first_to' or 'best_of'")
 
     # Log and print the game over message
-    log_and_print("\nGame Over")
+    print("\nGame Over")
 
     # Log and print the winner or draw message
     if game_winner is None:
-        log_and_print("Draw")
+        print("Draw")
     else:
-        log_and_print(
+        print(
             emoji.emojize(
                 f":party_popper: {game_winner} wins with a score of "
                 f"{game_winner.score} :party_popper:"

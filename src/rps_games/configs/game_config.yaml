@@ -1,5 +1,5 @@
 game:
-  rules: "BASIC_RULES"    # Options: "BASIC_RULES", "SPOCK_LIZARD"
+  rules: "SPOCK_LIZARD"    # Options: "BASIC_RULES", "SPOCK_LIZARD"
   mode: "best_of"         # Options: "first_to", "best_of"
   target_score: 10          # Used if mode is "first_to"
   rounds: 10                # Used if mode is "best_of"
@@ -9,5 +9,5 @@ players:
     type: "LLMPlayer" # Options: "HumanPlayer", "ComputerPlayer"
     name: "Gemini"
   player_two:
-    type: "HumanPlayer" # Options: "HumanPlayer", "ComputerPlayer"
-    name: "Massimiliano"
+    type: "ComputerPlayer" # Options: "HumanPlayer", "ComputerPlayer"
+    name: "Computer A"
