@@ -26,6 +26,33 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
+def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
+    """Validate the player configuration and return the player object.
+
+    Args:
+        player_config (dict[str, str]): Player configuration dictionary.
+        rules (Optional[dict]): Rules dictionary for the game. Required for LLMPlayer.
+
+    Returns:
+        Player: Player object based on the configuration.
+
+    Raises:
+        ValueError: If the player type is invalid.
+    """
+
+    if player_config["type"] not in PLAYERS_TYPES:
+        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
+
+    if player_config["type"] == "HumanPlayer":
+        player = HumanPlayer(name=player_config["name"])
+    elif player_config["type"] == "ComputerPlayer":
+        player = ComputerPlayer(name=player_config["name"])
+    elif player_config["type"] == "LLMPlayer":
+        player = LLMPlayer(name=player_config["name"], rules=rules)
+    else:
+        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
+    return player
+
 class RuleSet:
     """RuleSet class to store the rules of the game.
 
@@ -98,7 +125,6 @@ class Game:
         play_best_of: Plays a game with the best of a specified number of rounds.
         play_first_to: Plays a game where the first player to reach a specified score wins.
         _play_round: Plays a single round of the game.
-        _round_eval: Evaluates the round and updates the score.
         _get_winner: Gets the winner of the game.
     """
 
@@ -178,30 +204,21 @@ class Game:
             return
 
         winning_choice, reason = result
+
         winner = self.player_a if winning_choice == choice_a else self.player_b
+        winner.score += 1
 
         self.log_and_print(
             f"{winning_choice} {reason} {choice_b if winning_choice == choice_a else choice_a}"
         )
-        self._round_eval(winner)
 
-        return
-
-    def _round_eval(self, winner: Optional[Player]):
-        """Evaluates the round and updates the score.
-
-        Args:
-            winner (Optional[Player]): The player who won the round, or None if it's a draw.
-        """
-        if winner is None:
-            self.log_and_print("Draw")
-        else:
-            winner.score += 1
-            self.log_and_print(f"{winner} wins this round")
+        self.log_and_print(f"{winner} wins this round")
 
         self.log_and_print(
             f"Score: {self.player_a} {self.player_a.score} - {self.player_b} {self.player_b.score}"
         )
+
+        return
 
     def _get_winner(self) -> Player:
         """Gets the winner of the game.
@@ -214,34 +231,6 @@ class Game:
             if self.player_a.score > self.player_b.score
             else self.player_b
         )
-
-
-def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
-    """Validate the player configuration and return the player object.
-
-    Args:
-        player_config (dict[str, str]): Player configuration dictionary.
-        rules (Optional[dict]): Rules dictionary for the game. Required for LLMPlayer.
-
-    Returns:
-        Player: Player object based on the configuration.
-
-    Raises:
-        ValueError: If the player type is invalid.
-    """
-
-    if player_config["type"] not in PLAYERS_TYPES:
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
-
-    if player_config["type"] == "HumanPlayer":
-        player = HumanPlayer(name=player_config["name"])
-    elif player_config["type"] == "ComputerPlayer":
-        player = ComputerPlayer(name=player_config["name"])
-    elif player_config["type"] == "LLMPlayer":
-        player = LLMPlayer(name=player_config["name"], rules=rules)
-    else:
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
-    return player
 
 
 if __name__ == "__main__":

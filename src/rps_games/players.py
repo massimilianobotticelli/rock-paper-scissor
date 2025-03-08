@@ -139,7 +139,7 @@ class LLMPlayer(Player):
         self.model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
         self.rules = rules
 
-    def _generate_prompt(self, choices: list[str], history: list) -> str:
+    def _generate_prompt(self, choices: list[str], history: list) -> PromptTemplate:
         """Generates a prompt for the LLM with the current choices and game history.
 
         Args:
