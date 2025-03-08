@@ -1,0 +1,24 @@
+BASIC_RULES:
+  Rock:
+    Scissors: "crushes"
+  Paper:
+    Rock: "covers"
+  Scissors:
+    Paper: "cuts"
+
+SPOCK_LIZARD:
+  Rock:
+    Scissors: "crushes"
+    Lizard: "crushes"
+  Paper:
+    Rock: "covers"
+    Spock: "disproves"
+  Scissors:
+    Paper: "cuts"
+    Lizard: "decapitates"
+  Lizard:
+    Spock: "poisons"
+    Paper: "eats"
+  Spock:
+    Scissors: "smashes"
+    Rock: "vaporizes"
