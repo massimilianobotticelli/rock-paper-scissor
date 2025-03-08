@@ -1,12 +1,13 @@
 """Players module."""
+
 import getpass
 import random
 import sys
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from langchain_core.prompts import PromptTemplate
 from google.api_core.exceptions import ResourceExhausted
+from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 PLAYERS_TYPES = ["HumanPlayer", "ComputerPlayer", "LLMPlayer"]

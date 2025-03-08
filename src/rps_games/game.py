@@ -26,6 +26,7 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
+
 def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
     """Validate the player configuration and return the player object.
 
@@ -52,6 +53,7 @@ def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Pla
     else:
         raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
     return player
+
 
 class RuleSet:
     """RuleSet class to store the rules of the game.
