@@ -117,11 +117,11 @@ def test_play_round(game):
     assert game.player_b.score == 0
 
 
-def test_get_winner(game):
+def test_get_game_winner(game):
     """Test getting the winner of the game."""
     game.player_a.score = 3
     game.player_b.score = 1
-    winner = game._get_winner()
+    winner = game._get_game_winner()
     assert winner == game.player_a
 
 

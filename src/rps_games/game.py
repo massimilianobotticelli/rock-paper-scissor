@@ -116,7 +116,7 @@ class Game:
         play_best_of: Plays a game with the best of a specified number of rounds.
         play_first_to: Plays a game where the first player to reach a specified score wins.
         _play_round: Plays a single round of the game.
-        _get_winner: Gets the winner of the game.
+        _get_game_winner: Gets the winner of the game.
     """
 
     def __init__(self, player_a: Player, player_b: Player, rule_set: RuleSet):
@@ -159,7 +159,7 @@ class Game:
         if self.player_a.score == self.player_b.score:
             return None
 
-        return self._get_winner()
+        return self._get_game_winner()
 
     def play_first_to(self, score: int = 3) -> Player:
         """Plays a game where the first player to reach a specified score wins.
@@ -177,7 +177,7 @@ class Game:
             self._play_round()
             round_num += 1
 
-        return self._get_winner()
+        return self._get_game_winner()
 
     def _play_round(self):
         """Plays a single round of the game."""
@@ -196,14 +196,14 @@ class Game:
 
         winning_choice, reason = result
 
-        winner = self.player_a if winning_choice == choice_a else self.player_b
-        winner.score += 1
+        round_winner = self.player_a if winning_choice == choice_a else self.player_b
+        round_winner.score += 1
 
         self.log_and_print(
             f"{winning_choice} {reason} {choice_b if winning_choice == choice_a else choice_a}"
         )
 
-        self.log_and_print(f"{winner} wins this round")
+        self.log_and_print(f"{round_winner} wins this round")
 
         self.log_and_print(
             f"Score: {self.player_a} {self.player_a.score} - {self.player_b} {self.player_b.score}"
@@ -211,7 +211,7 @@ class Game:
 
         return
 
-    def _get_winner(self) -> Player:
+    def _get_game_winner(self) -> Player:
         """Gets the winner of the game.
 
         Returns:
@@ -254,7 +254,7 @@ def main(config: dict, defined_rules: dict):
     # Play the game based on the mode specified in the configuration
     if game_config.mode == "first_to":
         game_winner = game.play_first_to(score=game_config.target_score)
-    if game_config.mode == "best_of":
+    elif game_config.mode == "best_of":
         game_winner = game.play_best_of(rounds=game_config.rounds)
     else:
         raise ValueError("Invalid game mode. Must be 'first_to' or 'best_of'")
