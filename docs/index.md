@@ -24,8 +24,8 @@ This project implements a Rock, Paper, Scissors game with extended rules. The ga
 
 ### Prerequisites
 
-- Python 3.x
-- Required Python packages (can be installed via `requirements.txt`)
+- Python 3.12
+- Poetry
 
 ### Setup
 

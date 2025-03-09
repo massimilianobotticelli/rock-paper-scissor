@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors
 
-The documentation for this project is available at [GitHub Pages](https://massimilianobotticelli.github.io/rock-paper-scissor/).
+The documentation for this project including how-to-start, API and diagrams, is available at [https://massimilianobotticelli.github.io/rock-paper-scissor/](https://massimilianobotticelli.github.io/rock-paper-scissor/).
 
 ## Description
 
