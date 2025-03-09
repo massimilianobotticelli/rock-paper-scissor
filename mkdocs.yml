@@ -4,6 +4,9 @@ nav:
   - API: api.md
   - Diagrams: diagrams.md
 
+repo_url: https://github.com/massimilianobotticelli/rock-paper-scissor
+repo_name: rock-paper-scissor
+
 theme:
   name: material
   palette:
