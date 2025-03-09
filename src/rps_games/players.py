@@ -10,6 +10,7 @@ from google.api_core.exceptions import ResourceExhausted
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
+
 class Player(ABC):
     """Abstract Player class.
 
@@ -134,7 +135,7 @@ class LLMPlayer(Player):
             rules (dict[str, dict[str, str]]): Rules of the game.
         """
         super().__init__(name)
-        self.model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+        self.model = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash")
         self.rules = rules
 
     def _generate_prompt(self, choices: list[str], history: list) -> PromptTemplate:

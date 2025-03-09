@@ -9,13 +9,7 @@ import yaml
 from dotenv import load_dotenv
 
 from rps_games.configs.config import GameConfig, PlayerConfig, RulesConfig
-
-from rps_games.players import (
-    ComputerPlayer,
-    HumanPlayer,
-    LLMPlayer,
-    Player,
-)
+from rps_games.players import ComputerPlayer, HumanPlayer, LLMPlayer, Player
 
 load_dotenv()
 
@@ -244,7 +238,7 @@ if __name__ == "__main__":
     with open(config_file_path, "r", encoding="utf-8") as file:
         config = yaml.safe_load(file)
     with open(rules_file_path, "r", encoding="utf-8") as file:
-        defined_rules = yaml.safe_load(file)        
+        defined_rules = yaml.safe_load(file)
 
     # Validate the configuration using the GameConfig model
     game_config = GameConfig(**config["game"])
