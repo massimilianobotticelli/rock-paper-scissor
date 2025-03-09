@@ -22,11 +22,11 @@ logging.basicConfig(
 )
 
 
-def init_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
+def init_player(player_config: PlayerConfig, rules: Optional[dict]) -> Player:
     """Init the player object.
 
     Args:
-        player_config (dict[str, str]): Player configuration dictionary.
+        player_config (PlayerConfig): Player configuration.
         rules (Optional[dict]): Rules dictionary for the game. Required for LLMPlayer.
 
     Returns:
@@ -36,15 +36,12 @@ def init_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
         ValueError: If the player type is invalid.
     """
 
-    if player_config["type"] == "HumanPlayer":
-        player = HumanPlayer(name=player_config["name"])
-    elif player_config["type"] == "ComputerPlayer":
-        player = ComputerPlayer(name=player_config["name"])
-    elif player_config["type"] == "LLMPlayer":
-        player = LLMPlayer(name=player_config["name"], rules=rules)
-    else:
-        raise ValueError("Invalid player type for player one")
-    return player
+    if player_config.type == "HumanPlayer":
+        return HumanPlayer(name=player_config.name)
+    elif player_config.type == "ComputerPlayer":
+        return ComputerPlayer(name=player_config.name)
+    elif player_config.type == "LLMPlayer":
+        return LLMPlayer(name=player_config.name, rules=rules)
 
 
 class RuleSet:
@@ -227,19 +224,16 @@ class Game:
         )
 
 
-if __name__ == "__main__":
+def main(config: dict, defined_rules: dict):
+    """Main function to play the game based on the configuration.
 
-    # Get the directory of configuration and rules file
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    config_file_path = os.path.join(current_dir, "configs/game_config.yaml")
-    rules_file_path = os.path.join(current_dir, "configs/rules.yaml")
+    Args:
+        config (dict): Game configuration dictionary.
+        defined_rules (dict): Defined rules dictionary.
 
-    # Load the game and rules configuration from the YAML file
-    with open(config_file_path, "r", encoding="utf-8") as file:
-        config = yaml.safe_load(file)
-    with open(rules_file_path, "r", encoding="utf-8") as file:
-        defined_rules = yaml.safe_load(file)
-
+    Raises:
+        ValueError: If the game mode is invalid.
+    """
     # Validate the configuration using the GameConfig model
     game_config = GameConfig(**config["game"])
     player_one_config = PlayerConfig(**config["players"]["player_one"])
@@ -247,25 +241,21 @@ if __name__ == "__main__":
     rules_config = RulesConfig(**defined_rules)
 
     # Get and validate the chosen rules from the configuration
-    chosen_rules = config["game"]["rules"]
-    game_rules = RuleSet(defined_rules[chosen_rules])
+    chosen_rule_set = getattr(rules_config, game_config.rules)
+    game_rules = RuleSet(chosen_rule_set)
 
     # Init the players
-    player_one = init_player(
-        config["players"]["player_one"], defined_rules[chosen_rules]
-    )
-    player_two = init_player(
-        config["players"]["player_two"], defined_rules[chosen_rules]
-    )
+    player_one = init_player(player_one_config, chosen_rule_set)
+    player_two = init_player(player_two_config, chosen_rule_set)
 
     # Initialize the game with the players and rules
     game = Game(player_one, player_two, game_rules)
 
     # Play the game based on the mode specified in the configuration
-    if config["game"]["mode"] == "first_to":
-        game_winner = game.play_first_to(score=config["game"]["target_score"])
-    if config["game"]["mode"] == "best_of":
-        game_winner = game.play_best_of(rounds=config["game"]["rounds"])
+    if game_config.mode == "first_to":
+        game_winner = game.play_first_to(score=game_config.target_score)
+    if game_config.mode == "best_of":
+        game_winner = game.play_best_of(rounds=game_config.rounds)
     else:
         raise ValueError("Invalid game mode. Must be 'first_to' or 'best_of'")
 
@@ -282,3 +272,19 @@ if __name__ == "__main__":
                 f"{game_winner.score} :party_popper:"
             )
         )
+
+
+if __name__ == "__main__":
+
+    # Get the directory of configuration and rules file
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    config_file_path = os.path.join(current_dir, "configs/game_config.yaml")
+    rules_file_path = os.path.join(current_dir, "configs/rules.yaml")
+
+    # Load the game and rules configuration from the YAML file
+    with open(config_file_path, "r", encoding="utf-8") as file:
+        config_dict = yaml.safe_load(file)
+    with open(rules_file_path, "r", encoding="utf-8") as file:
+        rules_dict = yaml.safe_load(file)
+
+    main(config=config_dict, defined_rules=rules_dict)

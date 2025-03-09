@@ -2,7 +2,7 @@
 
 import pytest
 
-from rps_games.players import ComputerPlayer, HumanPlayer
+from rps_games.players import ComputerPlayer, HumanPlayer, LLMPlayer
 
 
 def test_human_player_choice(monkeypatch):
@@ -23,3 +23,12 @@ def test_computer_player_choice():
     player = ComputerPlayer("Bot")
     choices = ["Rock", "Paper", "Scissors"]
     assert player.choice(choices) in choices
+
+
+def test_llm_player_choice():
+    """Test that LLMPlayer returns a valid choice based on the model's response."""
+    player = LLMPlayer("TestLLM", rules={"Rock": {"Scissors": "crushes"}})
+    choices = ["Rock", "Paper", "Scissors"]
+    history = ["Rock", "Paper"]
+
+    assert player.choice(choices, history) in choices

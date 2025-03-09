@@ -1,6 +1,6 @@
 """This module contains the Pydantic models for the game configuration."""
 
-from typing import Dict, Literal
+from typing import Dict, Literal, Optional
 
 from pydantic import BaseModel
 
@@ -42,4 +42,4 @@ class RulesConfig(BaseModel):
     """
 
     BASIC_RULES: Dict[str, Dict[str, str]]
-    SPOCK_LIZARD: Dict[str, Dict[str, str]]
+    SPOCK_LIZARD: Optional[Dict[str, Dict[str, str]]] = None
