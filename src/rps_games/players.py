@@ -10,9 +10,6 @@ from google.api_core.exceptions import ResourceExhausted
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-PLAYERS_TYPES = ["HumanPlayer", "ComputerPlayer", "LLMPlayer"]
-
-
 class Player(ABC):
     """Abstract Player class.
 

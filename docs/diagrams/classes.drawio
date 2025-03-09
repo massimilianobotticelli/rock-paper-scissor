@@ -52,7 +52,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" value="validate_player_config(player_config: dict, rules: Optional[dict]) -&amp;gt; Player" style="html=1;whiteSpace=wrap;align=left;" vertex="1" parent="1">
+                <mxCell id="24" value="init_player_config(player_config: dict, rules: Optional[dict]) -&amp;gt; Player" style="html=1;whiteSpace=wrap;align=left;" vertex="1" parent="1">
                     <mxGeometry x="600" y="650" width="410" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontColor=default;labelBackgroundColor=none;" edge="1" parent="1" source="20" target="9">

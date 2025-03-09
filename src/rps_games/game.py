@@ -8,8 +8,9 @@ import emoji
 import yaml
 from dotenv import load_dotenv
 
+from rps_games.configs.config import GameConfig, PlayerConfig, RulesConfig
+
 from rps_games.players import (
-    PLAYERS_TYPES,
     ComputerPlayer,
     HumanPlayer,
     LLMPlayer,
@@ -27,8 +28,8 @@ logging.basicConfig(
 )
 
 
-def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
-    """Validate the player configuration and return the player object.
+def init_player(player_config: dict[str, str], rules: Optional[dict]) -> Player:
+    """Init the player object.
 
     Args:
         player_config (dict[str, str]): Player configuration dictionary.
@@ -41,9 +42,6 @@ def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Pla
         ValueError: If the player type is invalid.
     """
 
-    if player_config["type"] not in PLAYERS_TYPES:
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
-
     if player_config["type"] == "HumanPlayer":
         player = HumanPlayer(name=player_config["name"])
     elif player_config["type"] == "ComputerPlayer":
@@ -51,7 +49,7 @@ def validate_player(player_config: dict[str, str], rules: Optional[dict]) -> Pla
     elif player_config["type"] == "LLMPlayer":
         player = LLMPlayer(name=player_config["name"], rules=rules)
     else:
-        raise ValueError(f"Invalid player type for player one. Must be {PLAYERS_TYPES}")
+        raise ValueError("Invalid player type for player one")
     return player
 
 
@@ -245,23 +243,24 @@ if __name__ == "__main__":
     # Load the game and rules configuration from the YAML file
     with open(config_file_path, "r", encoding="utf-8") as file:
         config = yaml.safe_load(file)
-
     with open(rules_file_path, "r", encoding="utf-8") as file:
-        defined_rules = yaml.safe_load(file)
+        defined_rules = yaml.safe_load(file)        
+
+    # Validate the configuration using the GameConfig model
+    game_config = GameConfig(**config["game"])
+    player_one_config = PlayerConfig(**config["players"]["player_one"])
+    player_two_config = PlayerConfig(**config["players"]["player_two"])
+    rules_config = RulesConfig(**defined_rules)
 
     # Get and validate the chosen rules from the configuration
     chosen_rules = config["game"]["rules"]
-
-    if chosen_rules not in defined_rules:
-        raise ValueError("Invalid rule set. Must be one of the keys in rules.yaml")
-
     game_rules = RuleSet(defined_rules[chosen_rules])
 
-    # Get player configurations and init the players
-    player_one = validate_player(
+    # Init the players
+    player_one = init_player(
         config["players"]["player_one"], defined_rules[chosen_rules]
     )
-    player_two = validate_player(
+    player_two = init_player(
         config["players"]["player_two"], defined_rules[chosen_rules]
     )
 
