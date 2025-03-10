@@ -58,7 +58,7 @@ players:
     type: "LLMPlayer"      # Options: "HumanPlayer", "ComputerPlayer", "LLMPlayer"
     name: "Gemini"
   player_two:
-    type: "ComputerPlayer" # Options: "HumanPlayer", "ComputerPlayer"
+    type: "ComputerPlayer" # Options: "HumanPlayer", "ComputerPlayer", "LLMPlayer"
     name: "Computer A"
 ```
 
